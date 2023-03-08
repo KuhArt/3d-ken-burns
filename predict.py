@@ -117,7 +117,7 @@ class Predictor(BasePredictor):
             }
         )
 
-        output_path = Path(tempfile.mkdtemp()) / "output.mp4"
+        output_path = "output.mp4"
         moviepy.editor.ImageSequenceClip(
             sequence=[
                 npyFrame[:, :, ::-1]
@@ -125,6 +125,6 @@ class Predictor(BasePredictor):
             ],
             fps=25,
         ).write_videofile(str(output_path))
-        return Path(output_path)
+        return Path("output.mp4")
 
     # end
