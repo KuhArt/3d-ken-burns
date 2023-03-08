@@ -125,6 +125,6 @@ class Predictor(BasePredictor):
             ],
             fps=25,
         ).write_videofile(str(output_path))
-        return output_path
+        return Path(output_path)
 
     # end
