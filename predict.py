@@ -76,6 +76,7 @@ class Predictor(BasePredictor):
     def predict(
         self,
         image: Path = Input(description="Input image"),
+        isWarmup: str = Input(description="need be setted false", default="false"),
     ) -> Path:
         """Run a single prediction on the model"""
 
@@ -95,6 +96,9 @@ class Predictor(BasePredictor):
             fy=0.0,
             interpolation=cv2.INTER_AREA,
         )
+
+        if isWarmup=="true":
+          return
 
         process_load(npyImage, {})
         objFrom = {
