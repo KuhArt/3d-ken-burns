@@ -79,12 +79,13 @@ if __name__ == '__main__':
 		'intCropHeight': int(math.floor(0.97 * intHeight))
 	}
 
+	print(objFrom)
 	objTo = process_autozoom({
 		'fltShift': 100.0,
 		'fltZoom': 1.25,
 		'objFrom': objFrom
 	})
-
+	print(objTo)
 	npyResult = process_kenburns({
 		'fltSteps': numpy.linspace(0.0, 1.0, 75).tolist(),
 		'objFrom': objFrom,
