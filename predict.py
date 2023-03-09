@@ -120,20 +120,20 @@ class Predictor(BasePredictor):
 
         directions = {
           'top-bottom': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 993, 'intCropHeight': 993},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 640.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 993, 'intCropHeight': 993},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },
           'bottom-top': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 384.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },         
           'left-right': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 640.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objFrom': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },
           'right-left': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 384.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objFrom': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },
           'zoom-in': {
             'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
