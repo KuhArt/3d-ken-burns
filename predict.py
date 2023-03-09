@@ -120,27 +120,27 @@ class Predictor(BasePredictor):
 
         directions = {
           'top-bottom': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 256.0, 'intCropWidth': 993, 'intCropHeight': 993},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 900, 'intCropHeight': 900}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 993, 'intCropHeight': 993},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 640.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },
           'bottom-top': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 256.0, 'intCropWidth': 900, 'intCropHeight': 900}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 384.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },         
           'left-right': {
-            'objFrom': {'fltCenterU': 256.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 768.0, 'fltCenterV': 512.0, 'intCropWidth': 900, 'intCropHeight': 900}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 640.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },
           'right-left': {
-            'objFrom': {'fltCenterU': 768.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 256.0, 'fltCenterV': 512.0, 'intCropWidth': 900, 'intCropHeight': 900}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 384.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
           },
           'zoom-in': {
             'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 700, 'intCropHeight': 700}
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 640, 'intCropHeight': 640}
           },
           'zoom-out': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 700, 'intCropHeight': 700},
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 640, 'intCropHeight': 640},
             'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
           }
         }
