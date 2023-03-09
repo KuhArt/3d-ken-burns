@@ -102,19 +102,21 @@ class Predictor(BasePredictor):
 
         process_load(npyImage, {})
 
-        objFrom = {
-            "fltCenterU": intWidth / 2.0,
-            "fltCenterV": intHeight / 2.0,
-            "intCropWidth": int(math.floor(0.97 * intWidth)),
-            "intCropHeight": int(math.floor(0.97 * intHeight)),
-        }
-        print(objFrom)
+        # objFrom = {
+        #     "fltCenterU": intWidth / 2.0,
+        #     "fltCenterV": intHeight / 2.0,
+        #     "intCropWidth": int(math.floor(0.97 * intWidth)),
+        #     "intCropHeight": int(math.floor(0.97 * intHeight)),
+        # }
+        # print(objFrom)
 
 
-        objTo = process_autozoom(
-            {"fltShift": 100.0, "fltZoom": 1.25, "objFrom": objFrom}
-        )
-        print(objTo)
+        # objTo = process_autozoom(
+        #     {"fltShift": 100.0, "fltZoom": 1.25, "objFrom": objFrom}
+        # )
+        # print(objTo)
+        objFrom = {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 993, 'intCropHeight': 993}
+        objTo = {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 794, 'intCropHeight': 794}
 
         npyResult = process_kenburns(
             {
