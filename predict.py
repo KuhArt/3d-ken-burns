@@ -76,6 +76,7 @@ class Predictor(BasePredictor):
     def predict(
         self,
         image: Path = Input(description="Input image"),
+        duration: str = Input(description="need be setted false", default="3.0"),
         isWarmup: str = Input(description="need be setted false", default="false"),
     ) -> Path:
         """Run a single prediction on the model"""
@@ -116,11 +117,12 @@ class Predictor(BasePredictor):
         # )
         # print(objTo)
         objFrom = {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 993, 'intCropHeight': 993}
-        objTo = {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 794, 'intCropHeight': 794}
-
+        objTo = {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 850, 'intCropHeight': 850}
+        
+        frame_rate = 25
         npyResult = process_kenburns(
             {
-                "fltSteps": numpy.linspace(0.0, 1.0, 75).tolist(),
+                "fltSteps": numpy.linspace(0.0, 1.0, int(float(duration) * frame_rate)).tolist(),
                 "objFrom": objFrom,
                 "objTo": objTo,
                 "boolInpaint": True,
@@ -131,9 +133,9 @@ class Predictor(BasePredictor):
         moviepy.editor.ImageSequenceClip(
             sequence=[
                 npyFrame[:, :, ::-1]
-                for npyFrame in npyResult + list(reversed(npyResult))[1:]
+                for npyFrame in npyResult
             ],
-            fps=25,
+            fps=frame_rate,
         ).write_videofile(str(output_path))
         return Path("output.mp4")
 
