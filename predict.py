@@ -101,16 +101,20 @@ class Predictor(BasePredictor):
           return
 
         process_load(npyImage, {})
+
         objFrom = {
             "fltCenterU": intWidth / 2.0,
             "fltCenterV": intHeight / 2.0,
             "intCropWidth": int(math.floor(0.97 * intWidth)),
             "intCropHeight": int(math.floor(0.97 * intHeight)),
         }
+        print(objFrom)
+
 
         objTo = process_autozoom(
             {"fltShift": 100.0, "fltZoom": 1.25, "objFrom": objFrom}
         )
+        print(objTo)
 
         npyResult = process_kenburns(
             {
