@@ -77,6 +77,7 @@ class Predictor(BasePredictor):
         self,
         image: Path = Input(description="Input image"),
         duration: str = Input(description="need be setted false", default="3.0"),
+        direction: str = Input(description="need be setted false", default="zoom-in"),
         isWarmup: str = Input(description="need be setted false", default="false"),
     ) -> Path:
         """Run a single prediction on the model"""
@@ -116,15 +117,40 @@ class Predictor(BasePredictor):
         #     {"fltShift": 100.0, "fltZoom": 1.25, "objFrom": objFrom}
         # )
         # print(objTo)
-        objFrom = {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 993, 'intCropHeight': 993}
-        objTo = {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 850, 'intCropHeight': 850}
-        
+
+        directions = {
+          'top-bottom': {
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 256.0, 'intCropWidth': 993, 'intCropHeight': 993},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 900, 'intCropHeight': 900}
+          },
+          'bottom-top': {
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 768.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 256.0, 'intCropWidth': 900, 'intCropHeight': 900}
+          },         
+          'left-right': {
+            'objFrom': {'fltCenterU': 256.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 768.0, 'fltCenterV': 512.0, 'intCropWidth': 900, 'intCropHeight': 900}
+          },
+          'right-left': {
+            'objFrom': {'fltCenterU': 768.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 256.0, 'fltCenterV': 512.0, 'intCropWidth': 900, 'intCropHeight': 900}
+          },
+          'zoom-in': {
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 700, 'intCropHeight': 700}
+          },
+          'zoom-out': {
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 700, 'intCropHeight': 700},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
+          }
+        }
+
         frame_rate = 25
         npyResult = process_kenburns(
             {
                 "fltSteps": numpy.linspace(0.0, 1.0, int(float(duration) * frame_rate)).tolist(),
-                "objFrom": objFrom,
-                "objTo": objTo,
+                "objFrom": directions[direction]['objFrom'],
+                "objTo": directions[direction]['objTo'],
                 "boolInpaint": True,
             }
         )
