@@ -129,11 +129,11 @@ class Predictor(BasePredictor):
           },         
           'left-right': {
             'objFrom': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objTo': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
           },
           'right-left': {
             'objFrom': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objTo': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
           },
           'zoom-in': {
             'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
