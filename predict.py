@@ -120,19 +120,19 @@ class Predictor(BasePredictor):
 
         directions = {
           'top-bottom': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 993, 'intCropHeight': 993},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
           },
           'bottom-top': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 850, 'intCropHeight': 850}
+            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
+            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
           },         
           'left-right': {
-            'objFrom': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
+            'objFrom': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
+            'objTo': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
           },
           'right-left': {
-            'objFrom': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
+            'objFrom': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
             'objTo': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
           },
           'zoom-in': {
