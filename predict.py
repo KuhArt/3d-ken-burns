@@ -75,7 +75,7 @@ class Predictor(BasePredictor):
 
     def predict(
         self,
-        image: Path = Input(description="Input image"),
+        image: Path = Input(description="Input image", default="default"),
         duration: str = Input(description="need be setted false", default="3.0"),
         direction: str = Input(description="need be setted false", default="zoom-in"),
         isWarmup: str = Input(description="need be setted false", default="false"),
