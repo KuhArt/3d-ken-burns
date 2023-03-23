@@ -81,6 +81,9 @@ class Predictor(BasePredictor):
         isWarmup: str = Input(description="need be setted false", default="false"),
     ) -> Path:
         """Run a single prediction on the model"""
+        
+        if isWarmup=="true":
+          return
 
         npyImage = cv2.imread(filename=str(image), flags=cv2.IMREAD_COLOR)
         intWidth = npyImage.shape[1]
@@ -98,9 +101,6 @@ class Predictor(BasePredictor):
             fy=0.0,
             interpolation=cv2.INTER_AREA,
         )
-
-        if isWarmup=="true":
-          return
 
         process_load(npyImage, {})
 
