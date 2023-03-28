@@ -118,30 +118,45 @@ class Predictor(BasePredictor):
         # )
         # print(objTo)
 
+        shiftDiff = 32
+        halfWidth = intWidth / 2
+        halfHeight = intHeight / 2
+        defaultCropDiff = 1
+        defaultCroppedWidth = intWidth - defaultCropDiff
+        defaultCroppedHeight = intHeight - defaultCropDiff
+
+        initZoomCrop = 34 
+        initZoomCroppedWidth = intWidth - initZoomCrop
+        initZoomCroppedHeight = intHeight - initZoomCrop
+
+        resZoomCrop = 384 
+        resZoomCroppedWidth = intWidth - resZoomCrop
+        resZoomCroppedHeight = intHeight - resZoomCrop
+
         directions = {
           'top-bottom': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
+            'objFrom': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight - shiftDiff, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight},
+            'objTo': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight + shiftDiff, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight}
           },
           'bottom-top': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 544.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 480.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
+            'objFrom': {'fltCenterU': halfWidth, 'fltCenterV':  halfHeight + shiftDiff, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight},
+            'objTo': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight - shiftDiff, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight}
           },         
           'left-right': {
-            'objFrom': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
-            'objTo': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
+            'objFrom': {'fltCenterU': halfWidth - shiftDiff, 'fltCenterV': halfHeight, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight},
+            'objTo': {'fltCenterU': halfWidth + shiftDiff, 'fltCenterV': halfHeight, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight}
           },
           'right-left': {
-            'objFrom': {'fltCenterU': 544.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023},
-            'objTo': {'fltCenterU': 480.0, 'fltCenterV': 512.0, 'intCropWidth': 1023, 'intCropHeight': 1023}
+            'objFrom': {'fltCenterU': halfWidth + shiftDiff, 'fltCenterV': halfHeight, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight},
+            'objTo': {'fltCenterU': halfWidth - shiftDiff, 'fltCenterV': halfHeight, 'intCropWidth': defaultCroppedWidth, 'intCropHeight': defaultCroppedHeight}
           },
           'zoom-in': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 640, 'intCropHeight': 640}
+            'objFrom': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight, 'intCropWidth': initZoomCroppedWidth, 'intCropHeight': initZoomCroppedHeight},
+            'objTo': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight, 'intCropWidth': resZoomCroppedWidth, 'intCropHeight': resZoomCroppedHeight}
           },
           'zoom-out': {
-            'objFrom': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 640, 'intCropHeight': 640},
-            'objTo': {'fltCenterU': 512.0, 'fltCenterV': 512.0, 'intCropWidth': 990, 'intCropHeight': 990}
+            'objFrom': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight, 'intCropWidth': resZoomCroppedWidth, 'intCropHeight': resZoomCroppedHeight},
+            'objTo': {'fltCenterU': halfWidth, 'fltCenterV': halfHeight, 'intCropWidth': initZoomCroppedWidth, 'intCropHeight': initZoomCroppedHeight}
           }
         }
 
